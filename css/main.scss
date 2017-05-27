@@ -1,0 +1,153 @@
+html, body {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 62.5%;
+	background-color: #303030;
+	height: 100%;
+	margin: 0;
+	color: #fff;
+}
+
+/*--- Default Styles --*/
+.row {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.breadcrumb>li {
+    font-size: 1.5rem;
+} 
+
+.h1, h1 {
+    font-size: 2.5rem;
+}
+
+.h3, h3 {
+    font-size: 1.5rem;
+    margin-top: 5px;
+}
+
+.h4, h4 {
+	font-size: 2.2rem;
+}
+
+p {
+	font-size: 1.5rem;
+}
+
+.button {
+	font-size: 1.5rem;
+}
+
+.gen-button-default {
+	padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.btn-default:hover {
+	text-decoration: none;
+}
+
+.showcase {
+	border: 1px solid #fff;
+    padding: 2px 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.highlight {
+	border: 1px solid #fff;
+    background-color: #fff;
+    color: #303030;
+    border-radius: 3px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 2px;
+}
+
+/*--- End Default Styles ---*/
+
+header {
+	color: #FFF;
+}
+
+footer {
+	background-color: #F2F2F2;
+	color: #1a1a1a;
+	display: flex;
+	font-size: 1.7rem;
+	font-weight: 1.2rem;
+
+	div {
+		margin: 10px 100px 10px 165px;
+	}
+
+	ul {
+		list-style-type: none;
+		padding-left: 0;
+
+		li {
+			font-size: 1.2rem;
+		}
+	}
+}
+
+
+.movie-container {
+	margin-bottom: 20px;
+	h2 {
+		color: #fff;
+	}
+	h3 {
+		    color: #000;
+    background-color: #fff;
+	}
+	
+}
+
+.img-link:hover {
+	color: #23527c;
+    text-decoration: underline;
+    /*position: absolute;*/
+    z-index: 1;
+    display: block;
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+    /*margin: auto 0px auto -15px;
+     padding-left: 0px; */
+}
+
+.ind-movie-description {
+	h4 {
+		padding-bottom: 20px;
+	}
+}
+
+.rating-system {
+	display: flex;
+    justify-content: space-around;
+    margin-left: -10px;
+}
+
+.movie-sub-nav {
+	margin-top: 60px;
+
+	a {
+	font-size: 1.8rem;
+	border-top: 1px solid white;
+    border-bottom: 1px solid #FFF;
+    padding: 20px 75px 20px 10px;
+    margin-top: 40px;
+    margin-left: -2px;
+    text-decoration: none;
+    color: #fff;
+	}
+
+	a:hover {
+		border-top: 2px solid white;
+    	border-bottom: 2px solid #FFF;
+    	color: #a4cef3;
+	}
+	
+}

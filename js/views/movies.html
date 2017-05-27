@@ -1,0 +1,7 @@
+
+ <div class="col-md-2 col-sm-2" ng-repeat="movie in movies">
+ 	<a ng-href="/slim/#/movie/{{$index}}/{{movie.movie_name}}" class="img-link">
+ 		<img ng-src="/slim/images/thumbs/{{movie.movie_thumb}}" class="img-responsive">
+ 		<h3 class="name"> {{movie.movie_name}} ({{movie.movie_release_date}}) {{movie.movie_rating}}</h3> 
+ 	</a>
+ </div>

@@ -1,0 +1,28 @@
+<a class="button back btn-default gen-button-default" href="/slim/#/">Back</a>
+<h2>{{movie.movie_name}}</h2>
+<div class="col-md-5 col-sm-4">
+	<img ng-src="/slim/images/main/{{movie.movie_img_lg}}">
+</div>
+
+
+<div class="col-md-7 ind-movie-description">
+	<div class="row">
+		<div class="col-md-9">
+			<h4>Free</h4>
+			<p>
+				{{movie.movie_description}}
+			</p>
+		</div>
+		<div class="col-md-3 movie-details">
+			<h5>Details</h5>
+			<div class="rating-system">
+				<p class="showcase">{{movie.movie_rating}}</p><p class="highlight">HD</p><p class="highlight">CC</p><p class="highlight">DVD</p>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 movie-sub-nav">
+			<a href="">Rent</a> <a href="">Ways To Watch</a> <a href="">Trailer</a> <a href="">Extras</a> <a href="">More</a>
+		</div>
+	</div>
+</div>
