@@ -1,0 +1,8 @@
+.sass-cache/
+composer.json
+composer.lock
+images/
+index-old.php
+main.css
+node_modules/
+vendor/
