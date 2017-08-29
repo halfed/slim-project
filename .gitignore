@@ -6,3 +6,11 @@ index-old.php
 main.css
 node_modules/
 vendor/
+jasmine/lib/
+jasmine/SpecRunner.original.html
+jasmine/MIT.LICENSE
+jasmine/
+.babelrc
+oldwebpack-config.txt
+webpack.config.js
+package.json

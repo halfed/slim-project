@@ -62,7 +62,8 @@ footer {
   background-color: #F2F2F2;
   color: #1a1a1a;
   display: flex;
-  font-size: 1.7rem; }
+  font-size: 1.7rem;
+  font-weight: 1.2rem; }
   footer div {
     margin: 10px 100px 10px 165px; }
   footer ul {
@@ -90,8 +91,14 @@ footer {
   /*margin: auto 0px auto -15px;
    padding-left: 0px; */ }
 
+.ind-movie-container {
+  margin-bottom: 20px; }
+
 .ind-movie-description h4 {
   padding-bottom: 20px; }
+
+.bottom-movie-title {
+  display: none; }
 
 .rating-system {
   display: flex;
