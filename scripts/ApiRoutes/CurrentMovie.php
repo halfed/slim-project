@@ -19,11 +19,11 @@ $container['db'] = function ($c) {
     return $pdo;
 };
 
-$app->get('/currentMovies/{movieId}', function (Request $request, Response $response) {
+$app->get('/movie/{movieName}', function (Request $request, Response $response) {
 
-	$movieId = $request->getAttribute('movieId');
+	$movieName = $request->getAttribute('movieName');
     $mapper = new IndividualMovie($this->db);
-	$ticker = $mapper->currentMovie($movieId);
+	$ticker = $mapper->currentMovie($movieName);
     return $response;
 });
 $app->run();
