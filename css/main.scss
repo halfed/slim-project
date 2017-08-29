@@ -150,6 +150,12 @@ footer {
     margin-left: -2px;
     text-decoration: none;
     color: #fff;
+    -webkit-transition: border 0.35s 0s; /* Safari */
+    //-webkit-transition: border-bottom 0.75s; /* Safari */
+    -webkit-transition-timing-function: linear; /* Safari */
+    transition: border 0.35s 0s;
+    //transition: border-bottom 0.75s;
+    transition-timing-function: linear;
 	}
 
 	a:hover {
