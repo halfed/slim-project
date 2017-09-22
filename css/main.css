@@ -54,6 +54,10 @@ p {
   font-weight: bold;
   padding: 2px; }
 
+.collapse-overide >
+.show.in {
+  display: none; }
+
 /*--- End Default Styles ---*/
 header {
   color: #FFF; }
@@ -126,5 +130,8 @@ footer {
     border-top: 2px solid white;
     border-bottom: 2px solid #FFF;
     color: #a4cef3; }
+
+.trailer-container {
+  padding: 0 18px; }
 
 /*# sourceMappingURL=main.css.map */

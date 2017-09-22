@@ -1,36 +1,57 @@
+<?php
+use \Psr\Http\Message\ServerRequestInterface as Request;
+use \Psr\Http\Message\ResponseInterface as Response;
+
+require '../../vendor/autoload.php';
+require '../../scripts/connection.php';
+require '../../classes/Movies.php';
+
+$app = new \Slim\App(["settings" => $config]);
+
+?>
 <!DOCTYPE html>
 <html>
-<header>
-	<meta charset="UTF-8">
-	<title>The Movie Vault: individual movie</title>
+<head>
+  <meta charset="UTF-8">
+  <title>The Movie Vault: individual movie</title>
 
-	<?php
-    include '../../partials/header_links.php';
+  <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../../css/main.css">
+
+  <?php
+    $app->get('/{movieName}', function (Request $request, Response $response) {
+    $currentMovie = $request->getAttribute('movieName');
   ?>
-</header>
+      <script> var current-movie = <?php $currentMovie; ?></script>
+  <?php
+  });
+  $app->run();
+  ?>
+
+</head>
 <body>
-	<?php
-    	include '../../partials/header.php';
-  	?>
+  <div>test</div>
+  <?php
+      include '../../partials/header.php';
+    ?>
 
-  	<?php
-    	include '../../partials/breadcrumb.php';
-  	?>
+    <?php
+      include '../../partials/breadcrumb.php';
+    ?>
   
-  	<?php
-    	include '../../partials/nav.php';
-  	?>  
+    <?php
+      include '../../partials/nav.php';
+    ?>  
 
-  	<div id="movieApp" class="main row movie-container">
-	
-	</div>
+    <div id="movieApp" class="main row movie-container">
+  
+  </div>
 
-  	<?php
-    	include '../../partials/footer.php';
-  	?>
+    <?php
+      include '../../partials/footer.php';
+    ?>
 
-  	<?php
-    	include '../../partials/body_scripts.php';
-  	?>
-<script type="text/javascript" src="../xampp/htdocs/slim/build/movie-bundle.js"></script></body>
+    <script type="text/javascript" src="../../js/vendor/jquery.min.js"></script>
+    <script type="text/javascript" src="../../js/vendor/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../js/react-bundles/movie-bundle.js"></script></body>
 </html>

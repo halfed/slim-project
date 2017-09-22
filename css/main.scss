@@ -66,6 +66,12 @@ p {
     padding: 2px;
 }
 
+.collapse-overide >
+	.show.in {
+		display: none;
+	
+} 
+
 /*--- End Default Styles ---*/
 
 header {
@@ -164,4 +170,8 @@ footer {
     	color: #a4cef3;
 	}
 	
+}
+
+.trailer-container {
+	padding: 0 18px;
 }
