@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
-<header>
+<head>
 	<meta charset="UTF-8">
 	<title>The Movie Vault</title>
 
 	<?php
     include '../partials/header_links.php';
   ?>
-</header>
+</head>
 <body>
 
   <?php
