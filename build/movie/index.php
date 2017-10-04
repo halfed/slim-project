@@ -22,7 +22,7 @@ $app = new \Slim\App(["settings" => $config]);
     $app->get('/{movieName}', function (Request $request, Response $response) {
     $currentMovie = $request->getAttribute('movieName');
   ?>
-      <script> var current-movie = <?php $currentMovie; ?></script>
+      <script> var currentMovie = <?php echo json_encode($currentMovie); ?></script>
   <?php
   });
   $app->run();
@@ -30,7 +30,6 @@ $app = new \Slim\App(["settings" => $config]);
 
 </head>
 <body>
-  <div>test</div>
   <?php
       include '../../partials/header.php';
     ?>
