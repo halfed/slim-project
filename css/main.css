@@ -27,18 +27,71 @@ html, body {
 p {
   font-size: 1.5rem; }
 
+/*--- MIXINS ---*/
+/*--- BUTTON DEFAULTS ---*/
+.btn-default:hover {
+  text-decoration: none; }
+
 .button {
   font-size: 1.5rem; }
 
+/*--- CUSTOM BUTTONS ---*/
 .gen-button-default {
   padding: 5px;
   border-radius: 5px;
   font-weight: bold;
   font-size: 1.3rem; }
 
-.btn-default:hover {
-  text-decoration: none; }
+.close-btn {
+  color: #FFF;
+  background-color: transparent;
+  border-radius: 2px;
+  margin-bottom: 10px;
+  border-color: #FFF; }
 
+.close-btn:hover {
+  color: #FFF; }
+
+.close-trailer-btn {
+  color: #FFF;
+  background-color: transparent;
+  border-radius: 2px;
+  margin-bottom: 10px;
+  border-color: #FFF;
+  float: right;
+  right: 26px;
+  position: relative;
+  margin-bottom: 10px; }
+
+/*.button {
+	font-size: 1.5rem;
+}
+
+.gen-button-default {
+	padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.btn-default:hover {
+	text-decoration: none;
+}
+
+.close-btn {
+	color: #FFF;
+    background-color: transparent;
+    border-radius: 2px;
+    margin-bottom: 10px;
+    border-color: #FFF;
+}
+
+.close-trailer-btn {
+	float: right;
+    right: 26px;
+    position: relative;
+    margin-bottom: 10px;
+}*/
 .showcase {
   border: 1px solid #fff;
   padding: 2px 5px;

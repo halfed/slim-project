@@ -34,7 +34,9 @@ p {
 	font-size: 1.5rem;
 }
 
-.button {
+@import "custom-buttons";
+
+/*.button {
 	font-size: 1.5rem;
 }
 
@@ -48,6 +50,21 @@ p {
 .btn-default:hover {
 	text-decoration: none;
 }
+
+.close-btn {
+	color: #FFF;
+    background-color: transparent;
+    border-radius: 2px;
+    margin-bottom: 10px;
+    border-color: #FFF;
+}
+
+.close-trailer-btn {
+	float: right;
+    right: 26px;
+    position: relative;
+    margin-bottom: 10px;
+}*/
 
 .showcase {
 	border: 1px solid #fff;

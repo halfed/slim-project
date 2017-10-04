@@ -1,0 +1,45 @@
+/*--- MIXINS ---*/
+@mixin close-btn {
+	color: #FFF;
+	background-color: transparent;
+	border-radius: 2px;
+	margin-bottom: 10px;
+	border-color: #FFF;
+}
+
+@mixin btn-hover($color) {
+	color: $color;
+}
+
+/*--- BUTTON DEFAULTS ---*/
+.btn-default:hover {
+	text-decoration: none;
+}
+
+.button {
+	font-size: 1.5rem;
+}
+
+/*--- CUSTOM BUTTONS ---*/
+.gen-button-default {
+	padding: 5px;
+	border-radius: 5px;
+	font-weight: bold;
+	font-size: 1.3rem;
+}
+
+.close-btn {
+	@include close-btn;
+}
+
+.close-btn:hover {
+	@include btn-hover(#FFF);
+}
+
+.close-trailer-btn {
+	@include close-btn;
+	float: right;
+	right: 26px;
+	position: relative;
+	margin-bottom: 10px;
+}
