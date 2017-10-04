@@ -13,7 +13,6 @@ var MovieApp = React.createClass({
     this.setState({
       movies: response
     });
-    console.log(response);
   },
   getmovies: function(URL) {
     $.ajax({

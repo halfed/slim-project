@@ -20,8 +20,8 @@
     	include '../../partials/nav.php';
   	?>  
 
-  	<div id="movieApp" class="main row movie-container">
-	
+  <div id="movieApp" class="main row movie-container">
+	 
 	</div>
 
   	<?php
