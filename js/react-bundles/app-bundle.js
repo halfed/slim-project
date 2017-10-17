@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 195);
+/******/ 	return __webpack_require__(__webpack_require__.s = 196);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -22912,7 +22912,7 @@ var MyComponentClass = React.createClass({
 				{ className: 'col-md-2 col-sm-2 ind-movie-container', key: 'movieId_' + result.movie_id },
 				React.createElement(
 					'a',
-					{ href: "movie/" + result.movie_name, className: 'img-link' },
+					{ href: "movie/" + result.url_param, className: 'img-link' },
 					React.createElement('img', { src: "../images/thumbs/" + result.movie_thumb, className: 'img-responsive' }),
 					React.createElement(
 						'h3',
@@ -22941,7 +22941,8 @@ module.exports = MyComponentClass;
 /* 192 */,
 /* 193 */,
 /* 194 */,
-/* 195 */
+/* 195 */,
+/* 196 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var React = __webpack_require__(26);
@@ -22973,7 +22974,7 @@ var MovieApp = React.createClass({
     });
   },
   componentDidMount: function () {
-    this.getmovies('http://localhost/slim/scripts/ApiRoutes/AllMovies.php/allMovies');
+    this.getmovies('/slim/scripts/ApiRoutes/AllMovies.php/allMovies');
   },
   render: function () {
     return React.createElement(App, { movies: this.state.movies });

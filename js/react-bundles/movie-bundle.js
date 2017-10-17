@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 196);
+/******/ 	return __webpack_require__(__webpack_require__.s = 197);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -22901,6 +22901,52 @@ module.exports = function (isValidElement, throwOnDirectAccess) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var React = __webpack_require__(26);
+//var ReactDOM = require('react-dom');
+
+var Breadcrumb = React.createClass({
+	displayName: "Breadcrumb",
+
+	render: function () {
+		var movieBreadCrumb = this.props.movieDisplayBreadcrumb.map(function (result) {
+			return React.createElement(
+				"ol",
+				{ className: "breadcrumb" },
+				React.createElement(
+					"li",
+					null,
+					React.createElement(
+						"a",
+						{ href: "/slim/build" },
+						"Home"
+					)
+				),
+				React.createElement(
+					"li",
+					null,
+					"Movie"
+				),
+				React.createElement(
+					"li",
+					{ className: "active" },
+					result.movie_name
+				)
+			);
+		}.bind(this));
+		return React.createElement(
+			"div",
+			null,
+			movieBreadCrumb
+		);
+	}
+});
+
+module.exports = Breadcrumb;
+
+/***/ }),
+/* 192 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var React = __webpack_require__(26);
 
 var ImageDisplayClass = React.createClass({
 	displayName: 'ImageDisplayClass',
@@ -22924,7 +22970,7 @@ var ImageDisplayClass = React.createClass({
 module.exports = ImageDisplayClass;
 
 /***/ }),
-/* 192 */
+/* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var React = __webpack_require__(26);
@@ -22986,6 +23032,15 @@ var MovieContentClass = React.createClass({
 								{ className: 'highlight' },
 								'DVD'
 							)
+						),
+						React.createElement(
+							'div',
+							null,
+							React.createElement(
+								'p',
+								null,
+								result.genre
+							)
 						)
 					)
 				),
@@ -23039,7 +23094,7 @@ var MovieContentClass = React.createClass({
 module.exports = MovieContentClass;
 
 /***/ }),
-/* 193 */
+/* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var React = __webpack_require__(26);
@@ -23062,7 +23117,7 @@ var MovieTitleClass = React.createClass({
 module.exports = MovieTitleClass;
 
 /***/ }),
-/* 194 */
+/* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var React = __webpack_require__(26);
@@ -23080,7 +23135,7 @@ var VideoDisplayClass = React.createClass({
 					{ className: 'btn close-trailer-btn', onClick: this.props.onClick },
 					'close'
 				),
-				React.createElement('iframe', { width: '560', height: '315', src: 'https://www.youtube-nocookie.com/embed/IEVE3KSKQ0o?rel=0', frameBorder: '0', allowFullScreen: true })
+				React.createElement('iframe', { width: '560', height: '315', src: "https://www.youtube-nocookie.com/embed/" + result.movie_video_id + "?rel=0", frameBorder: '0', allowFullScreen: true })
 			);
 		}.bind(this));
 		return React.createElement(
@@ -23093,19 +23148,18 @@ var VideoDisplayClass = React.createClass({
 
 module.exports = VideoDisplayClass;
 
-//<iframe width="560" height="315" src="https://www.youtube.com/embed/d96cjJhvlMA" frameborder="0" allowfullscreen></iframe>
-
 /***/ }),
-/* 195 */,
-/* 196 */
+/* 196 */,
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var React = __webpack_require__(26);
 var ReactDOM = __webpack_require__(86);
-var MovieTitle = __webpack_require__(193);
-var ImageDisplay = __webpack_require__(191);
-var MovieContent = __webpack_require__(192);
-var VideoDisplay = __webpack_require__(194);
+var MovieTitle = __webpack_require__(194);
+var ImageDisplay = __webpack_require__(192);
+var MovieContent = __webpack_require__(193);
+var VideoDisplay = __webpack_require__(195);
+var Breadcrumb = __webpack_require__(191);
 
 var IndMovieApp = React.createClass({
 	displayName: 'IndMovieApp',
@@ -23149,26 +23203,37 @@ var IndMovieApp = React.createClass({
 	},
 
 	componentDidMount: function () {
-		this.getIndMovie('http://localhost/slim/scripts/ApiRoutes/CurrentMovie.php/movie/' + currentMovie);
+		this.getIndMovie('/slim/scripts/ApiRoutes/CurrentMovie.php/movie/' + currentMovie);
 	},
 
 	render: function () {
-		return React.createElement(
-			'div',
-			null,
-			React.createElement(
-				'a',
-				{ className: 'button back btn-default gen-button-default', href: '/slim/build' },
-				'Back'
-			),
-			React.createElement(MovieTitle, { movieTitleName: this.state.indMovie }),
-			React.createElement(this.state.movieDisplayContainer, { movieDisplayType: this.state.indMovie, onClick: this.handleDisplayImageClick }),
-			React.createElement(MovieContent, { indMovieContent: this.state.indMovie, onClick: this.handleDisplayVideoClick })
-		);
+		//BASED ON THE CONDITION, WE WILL DISPLAY THE BREADCRUMB OR THE MAIN CONTENT, DOING THIS WAY TO PREVENT HAVING TO HAVE ANOTHER PARENT COMPONENT
+		if (this.props.displayBreadCrumb === "true") {
+			return React.createElement(
+				'div',
+				null,
+				React.createElement(Breadcrumb, { movieDisplayBreadcrumb: this.state.indMovie })
+			);
+		} else {
+			return React.createElement(
+				'div',
+				null,
+				React.createElement(
+					'a',
+					{ className: 'button back btn-default gen-button-default', href: '/slim/build' },
+					'Back'
+				),
+				React.createElement(MovieTitle, { movieTitleName: this.state.indMovie }),
+				React.createElement(this.state.movieDisplayContainer, { movieDisplayType: this.state.indMovie, onClick: this.handleDisplayImageClick }),
+				React.createElement(MovieContent, { indMovieContent: this.state.indMovie, onClick: this.handleDisplayVideoClick })
+			);
+		}
 	}
+
 });
 
-ReactDOM.render(React.createElement(IndMovieApp, null), document.getElementById('movieApp'));
+ReactDOM.render(React.createElement(IndMovieApp, { displayBreadCrumb: 'true' }), document.getElementById('breadcrumb'));
+ReactDOM.render(React.createElement(IndMovieApp, { displayBreadCrumb: 'false' }), document.getElementById('movieApp'));
 
 /***/ })
 /******/ ]);

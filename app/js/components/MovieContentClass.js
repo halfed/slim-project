@@ -17,6 +17,7 @@ var MovieContentClass = React.createClass({
 								<div className="rating-system">
 									<p className="showcase">{result.movie_rating}</p><p className="highlight">HD</p><p className="highlight">CC</p><p className="highlight">DVD</p>
 								</div>
+								<div><p>{result.genre}</p></div>
 							</div>
 						</div>
 						<div className="row">

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<title>The Movie Vault</title>
 
 	<?php
@@ -9,15 +9,6 @@
   ?>
 </head>
 <body>
-
-  <?php
-    include '../partials/header.php';
-  ?>
-
-  <?php
-    include '../partials/breadcrumb.php';
-  ?>
-  
   <?php
     include '../partials/nav.php';
   ?>  

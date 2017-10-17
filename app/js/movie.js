@@ -4,6 +4,7 @@ var MovieTitle = require('./components/MovieTitleClass');
 var ImageDisplay = require('./components/ImageDisplayClass');
 var MovieContent = require('./components/MovieContentClass');
 var VideoDisplay = require('./components/VideoDisplayClass');
+var Breadcrumb = require('./components/BreadcrumbClass');
 
 var IndMovieApp = React.createClass({
 	getInitialState: function(){
@@ -46,11 +47,20 @@ var IndMovieApp = React.createClass({
 	},
 
 	componentDidMount: function() {
-		this.getIndMovie('http://localhost/slim/scripts/ApiRoutes/CurrentMovie.php/movie/'+currentMovie);
+		this.getIndMovie('/slim/scripts/ApiRoutes/CurrentMovie.php/movie/'+currentMovie);
 	},
 
 	render: function() {
-		return (
+		//BASED ON THE CONDITION, WE WILL DISPLAY THE BREADCRUMB OR THE MAIN CONTENT, DOING THIS WAY TO PREVENT HAVING TO HAVE ANOTHER PARENT COMPONENT
+		if(this.props.displayBreadCrumb === "true") {
+			return (
+				<div>
+					<Breadcrumb movieDisplayBreadcrumb={this.state.indMovie} />
+				</div>
+				);
+		}
+		else {
+			return (
 				<div>
 					<a className="button back btn-default gen-button-default" href="/slim/build">Back</a>
 					<MovieTitle movieTitleName={this.state.indMovie} />
@@ -58,7 +68,10 @@ var IndMovieApp = React.createClass({
 					<MovieContent indMovieContent={this.state.indMovie} onClick={this.handleDisplayVideoClick} />
 				</div>
 				);
+		}
 	}
+		
 });
 
-ReactDOM.render(<IndMovieApp />, document.getElementById('movieApp'));
+ReactDOM.render(<IndMovieApp displayBreadCrumb="true" />, document.getElementById('breadcrumb'));
+ReactDOM.render(<IndMovieApp displayBreadCrumb="false"/>, document.getElementById('movieApp'));

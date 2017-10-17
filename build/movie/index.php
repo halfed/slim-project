@@ -7,6 +7,12 @@ require '../../scripts/connection.php';
 require '../../classes/Movies.php';
 
 $app = new \Slim\App(["settings" => $config]);
+$apps = new \Slim\App([
+    'settings' => [
+        // Only set this if you need access to route within middleware
+        'determineRouteBeforeAppMiddleware' => true
+    ]
+]);
 
 ?>
 <!DOCTYPE html>
@@ -19,8 +25,10 @@ $app = new \Slim\App(["settings" => $config]);
   <link rel="stylesheet" type="text/css" href="../../css/main.css">
 
   <?php
+    
     $app->get('/{movieName}', function (Request $request, Response $response) {
     $currentMovie = $request->getAttribute('movieName');
+
   ?>
       <script> var currentMovie = <?php echo json_encode($currentMovie); ?></script>
   <?php
@@ -30,17 +38,9 @@ $app = new \Slim\App(["settings" => $config]);
 
 </head>
 <body>
-  <?php
-      include '../../partials/header.php';
-    ?>
-
-    <?php
-      include '../../partials/breadcrumb.php';
-    ?>
-  
     <?php
       include '../../partials/nav.php';
-    ?>  
+    ?>
 
     <div id="movieApp" class="main row movie-container">
   

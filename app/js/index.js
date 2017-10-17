@@ -25,7 +25,7 @@ var MovieApp = React.createClass({
     });
   },
   componentDidMount: function() {
-    this.getmovies('http://localhost/slim/scripts/ApiRoutes/AllMovies.php/allMovies');
+    this.getmovies('/slim/scripts/ApiRoutes/AllMovies.php/allMovies');
   },
 	render: function() {
 		return <App movies={this.state.movies}/>
