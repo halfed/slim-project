@@ -22909,7 +22909,7 @@ var MyComponentClass = React.createClass({
 		var resultItems = this.props.movies.map(function (result) {
 			return React.createElement(
 				'div',
-				{ className: 'col-md-2 col-sm-2 ind-movie-container', key: 'movieId_' + result.movie_id },
+				{ className: 'col-xs-4 col-md-2 ind-movie-container', key: 'movieId_' + result.movie_id },
 				React.createElement(
 					'a',
 					{ href: "movie/" + result.url_param, className: 'img-link' },

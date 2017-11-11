@@ -41,32 +41,14 @@ html, body {
 	.show.in {
 		display: none;
 	
-} 
+}
+
+.img-fluid img{
+	width: 100%;
+}
 
 /*--- End Default Styles ---*/
 @import "header-nav";
-
-footer {
-	background-color: #f2f2f2;
-	color: #1a1a1a;
-	display: flex;
-	font-size: 1.7rem;
-	font-weight: 1.2rem;
-
-	div {
-		margin: 10px 100px 10px 165px;
-	}
-
-	ul {
-		list-style-type: none;
-		padding-left: 0;
-
-		li {
-			font-size: 1.2rem;
-		}
-	}
-}
-
 
 .movie-container {
 	margin-bottom: 20px;
@@ -78,6 +60,16 @@ footer {
     background-color: #fff;
 	}
 	
+}
+
+.trailer-container {
+	width: 100%;
+}
+
+@media only screen and (max-width: 450px) {
+	.trailer-container {
+		height: auto;
+	}
 }
 
 .img-link:hover {
@@ -108,18 +100,21 @@ footer {
 
 .rating-system {
 	display: flex;
-    justify-content: space-around;
-    margin-left: -10px;
+    justify-content: flex-start;
+
+    p {
+    	margin-right: 22px;
+    }
 }
 
 .movie-sub-nav {
-	margin-top: 60px;
+	display: flex;
 
 	a {
 	font-size: 1.8rem;
 	border-top: 1px solid white;
     border-bottom: 1px solid #fff;
-    padding: 20px 75px 20px 10px;
+    padding: 15px 75px 15px 10px;
     margin-top: 40px;
     margin-left: -2px;
     text-decoration: none;
@@ -130,6 +125,15 @@ footer {
     transition: border 0.35s 0s;
     //transition: border-bottom 0.75s;
     transition-timing-function: linear;
+    flex-grow: 1;
+	}
+
+	@media only screen and (max-width:750px) {
+		a {
+			font-size: 0.9rem;
+			padding: 20px 10px 20px 10px;
+    		margin-top: 20px;
+		}
 	}
 
 	a:hover {
@@ -143,3 +147,6 @@ footer {
 .trailer-container {
 	padding: 0 18px;
 }
+
+@import "movie-details";
+@import "footer"

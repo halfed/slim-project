@@ -49,3 +49,5 @@ function Convert(number, fromUnit) {
         }
     };
 }
+
+Convert(12, "inches").to("cm");

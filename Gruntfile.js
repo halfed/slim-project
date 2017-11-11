@@ -8,10 +8,23 @@ module.exports = function(grunt) {
         'css/main.css': 'css/main.scss'
       }
     }
+  },
+  cssmin: {
+    target: {
+      files: [{
+        expand: true,
+        cwd: 'css',
+        src: ['main.css', '!*.min.css'],
+        dest: 'css/',
+        ext: '.min.css'
+      }]
+    }
   }
 });
 
 grunt.loadNpmTasks('grunt-contrib-sass');
+
+grunt.loadNpmTasks('grunt-contrib-cssmin');
 
 // Default task(s).
 grunt.registerTask('default', ['sass']);

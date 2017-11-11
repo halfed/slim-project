@@ -22955,13 +22955,13 @@ var ImageDisplayClass = React.createClass({
 		var movieImage = this.props.movieDisplayType.map(function (result) {
 			return React.createElement(
 				'div',
-				{ key: 'movieId_' + result.movie_id },
+				{ key: 'movieId_' + result.movie_id, className: 'img-fluid' },
 				React.createElement('img', { src: '../../images/main/' + result.movie_img_lg })
 			);
 		});
 		return React.createElement(
 			'div',
-			{ className: 'col-md-5 col-sm-4 collapse-overide' },
+			{ className: 'col-md-5 col-sm-12' },
 			movieImage
 		);
 	}
@@ -22986,98 +22986,122 @@ var MovieContentClass = React.createClass({
 				{ key: 'movieId_' + result.movie_id },
 				React.createElement(
 					'div',
-					{ className: 'row' },
+					{ className: 'container-fluid-small' },
 					React.createElement(
 						'div',
-						{ className: 'col-md-9' },
-						React.createElement(
-							'h4',
-							null,
-							'Free'
-						),
-						React.createElement(
-							'p',
-							null,
-							result.movie_description
-						)
-					),
-					React.createElement(
-						'div',
-						{ className: 'col-md-3 movie-details' },
-						React.createElement(
-							'h5',
-							null,
-							'Details'
-						),
+						{ className: 'row no-gutters' },
 						React.createElement(
 							'div',
-							{ className: 'rating-system' },
+							{ className: 'col-md-8 movie-details' },
 							React.createElement(
-								'p',
-								{ className: 'showcase' },
-								result.movie_rating
+								'h4',
+								null,
+								'Free'
 							),
 							React.createElement(
 								'p',
-								{ className: 'highlight' },
-								'HD'
-							),
-							React.createElement(
-								'p',
-								{ className: 'highlight' },
-								'CC'
-							),
-							React.createElement(
-								'p',
-								{ className: 'highlight' },
-								'DVD'
+								null,
+								result.movie_description
 							)
 						),
 						React.createElement(
 							'div',
-							null,
+							{ className: 'col-md-3' },
 							React.createElement(
-								'p',
+								'h5',
 								null,
-								result.genre
+								'Details'
+							),
+							React.createElement(
+								'div',
+								{ className: 'rating-system' },
+								React.createElement(
+									'p',
+									{ className: 'showcase' },
+									result.movie_rating
+								),
+								React.createElement(
+									'p',
+									{ className: 'highlight' },
+									'HD'
+								),
+								React.createElement(
+									'p',
+									{ className: 'highlight' },
+									'CC'
+								),
+								React.createElement(
+									'p',
+									{ className: 'highlight' },
+									'DVD'
+								)
+							),
+							React.createElement(
+								'div',
+								null,
+								React.createElement(
+									'p',
+									null,
+									result.genre
+								)
 							)
 						)
 					)
 				),
 				React.createElement(
 					'div',
-					{ className: 'row' },
+					{ className: 'row no-gutters' },
 					React.createElement(
 						'div',
 						{ className: 'col-md-12 movie-sub-nav' },
 						React.createElement(
 							'a',
 							{ href: '' },
-							'Rent'
+							React.createElement(
+								'b',
+								null,
+								'Rent'
+							)
 						),
 						' ',
 						React.createElement(
 							'a',
 							{ href: '' },
-							'Ways To Watch'
+							React.createElement(
+								'b',
+								null,
+								'Ways To Watch'
+							)
 						),
 						' ',
 						React.createElement(
 							'a',
 							{ href: '#', onClick: this.props.onClick },
-							'Trailer'
+							React.createElement(
+								'b',
+								null,
+								'Trailer'
+							)
 						),
 						' ',
 						React.createElement(
 							'a',
 							{ href: '' },
-							'Extras'
+							React.createElement(
+								'b',
+								null,
+								'Extras'
+							)
 						),
 						' ',
 						React.createElement(
 							'a',
 							{ href: '' },
-							'More'
+							React.createElement(
+								'b',
+								null,
+								'More'
+							)
 						)
 					)
 				)
@@ -23085,7 +23109,7 @@ var MovieContentClass = React.createClass({
 		}, this);
 		return React.createElement(
 			'div',
-			{ className: 'col-md-7 ind-movie-description' },
+			{ className: 'col-md-7 col-sm-12 ind-movie-description' },
 			movieContent
 		);
 	}
@@ -23129,13 +23153,13 @@ var VideoDisplayClass = React.createClass({
 		var movieVideo = this.props.movieDisplayType.map(function (result) {
 			return React.createElement(
 				'div',
-				{ key: 'movieId_' + result.movie_id },
+				{ key: 'movieId_' + result.movie_id, className: 'trailer-container' },
 				React.createElement(
 					'button',
 					{ className: 'btn close-trailer-btn', onClick: this.props.onClick },
 					'close'
 				),
-				React.createElement('iframe', { width: '560', height: '315', src: "https://www.youtube-nocookie.com/embed/" + result.movie_video_id + "?rel=0", frameBorder: '0', allowFullScreen: true })
+				React.createElement('iframe', { width: '100%', height: 'auto', src: "https://www.youtube-nocookie.com/embed/" + result.movie_video_id + "?rel=0", frameBorder: '0', allowFullScreen: true })
 			);
 		}.bind(this));
 		return React.createElement(

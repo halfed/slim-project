@@ -25,10 +25,35 @@ a:hover {
   margin-left: 20px;
   margin-right: 20px; }
 
+.col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3,
+.col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+  padding-right: 5px;
+  padding-left: 5px; }
+
 /*--- NAVIGATION ---*/
-@media (min-width: 768px) {
+@media only screen and (min-width: 750px) {
   .navbar {
-    border-radius: 0; } }
+    border-radius: 0; }
+
+  .navbar-form .form-group {
+    float: left;
+    width: 79%;
+    margin-right: 10px; } }
+@media (min-width: 768px) {
+  .navbar-form .form-control {
+    width: 100%; } }
+@media only screen and (max-width: 768px) {
+  .navbar-form {
+    display: flex;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-top: none;
+    border-bottom: none; }
+    .navbar-form .form-control {
+      width: 100%; }
+    .navbar-form .form-group {
+      margin-right: 10px;
+      width: 100%; } }
 .navbar-default .navbar-nav > li > a {
   font-size: 1.3rem; }
 
@@ -42,6 +67,21 @@ a:hover {
   .breadcrumb > li a {
     color: #303030; }
 
+.container-fluid-small {
+  padding-left: 5px;
+  padding-right: 5px; }
+
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0; }
+  .no-gutters > .col,
+  .no-gutters > [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0; }
+
+@media only screen and (max-width: 750px) {
+  .nav > li {
+    float: left; } }
 html, body {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 62.5%;
@@ -115,28 +155,26 @@ html, body {
 .show.in {
   display: none; }
 
+.img-fluid img {
+  width: 100%; }
+
 /*--- End Default Styles ---*/
 .navbar-header {
-  width: 55%; }
+  width: 100%;
+  background-color: #303030; }
   .navbar-header header {
-    float: right; }
+    text-align: center; }
     .navbar-header header a {
-      color: #303030;
+      color: #ffffff;
       font-weight: 600; }
 
-footer {
-  background-color: #f2f2f2;
-  color: #1a1a1a;
-  display: flex;
-  font-size: 1.7rem;
-  font-weight: 1.2rem; }
-  footer div {
-    margin: 10px 100px 10px 165px; }
-  footer ul {
-    list-style-type: none;
-    padding-left: 0; }
-    footer ul li {
-      font-size: 1.2rem; }
+.navbar-container {
+  float: right; }
+
+.search {
+  background-image: url(../images/sprites/searchx2.png);
+  width: 50px;
+  height: 50px; }
 
 .movie-container {
   margin-bottom: 20px; }
@@ -146,6 +184,12 @@ footer {
     color: #000;
     background-color: #fff; }
 
+.trailer-container {
+  width: 100%; }
+
+@media only screen and (max-width: 450px) {
+  .trailer-container {
+    height: auto; } }
 .img-link:hover {
   color: #23527c;
   text-decoration: underline;
@@ -168,16 +212,17 @@ footer {
 
 .rating-system {
   display: flex;
-  justify-content: space-around;
-  margin-left: -10px; }
+  justify-content: flex-start; }
+  .rating-system p {
+    margin-right: 22px; }
 
 .movie-sub-nav {
-  margin-top: 60px; }
+  display: flex; }
   .movie-sub-nav a {
     font-size: 1.8rem;
     border-top: 1px solid white;
     border-bottom: 1px solid #fff;
-    padding: 20px 75px 20px 10px;
+    padding: 15px 75px 15px 10px;
     margin-top: 40px;
     margin-left: -2px;
     text-decoration: none;
@@ -187,7 +232,13 @@ footer {
     -webkit-transition-timing-function: linear;
     /* Safari */
     transition: border 0.35s 0s;
-    transition-timing-function: linear; }
+    transition-timing-function: linear;
+    flex-grow: 1; }
+  @media only screen and (max-width: 750px) {
+    .movie-sub-nav a {
+      font-size: 0.9rem;
+      padding: 20px 10px 20px 10px;
+      margin-top: 20px; } }
   .movie-sub-nav a:hover {
     border-top: 2px solid #fff;
     border-bottom: 2px solid #fff;
@@ -195,5 +246,37 @@ footer {
 
 .trailer-container {
   padding: 0 18px; }
+
+.ind-movie-description .movie-details {
+  margin-right: 50px; }
+.ind-movie-description p {
+  text-align: justify; }
+@media only screen and (max-width: 750px) {
+  .ind-movie-description .movie-details {
+    margin-right: 0; }
+  .ind-movie-description h4 {
+    font-size: 1.8rem;
+    padding-bottom: 5px; }
+  .ind-movie-description p {
+    font-size: 1.1rem;
+    word-spacing: -1px; } }
+
+footer {
+  background-color: #f2f2f2;
+  color: #1a1a1a;
+  display: flex;
+  font-size: 1.7rem;
+  font-weight: 1.2rem;
+  padding-top: 10px; }
+  @media only screen and (max-width: 750px) {
+    footer {
+      font-size: 1.2rem; }
+      footer ul li {
+        font-size: 1rem; } }
+  footer ul {
+    list-style-type: none;
+    padding-left: 0; }
+    footer ul li {
+      font-size: 1.2rem; }
 
 /*# sourceMappingURL=main.css.map */
