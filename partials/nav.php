@@ -19,7 +19,7 @@
   </div>
   <div id="breadcrumb" class="container-fluid divider-bottom-md">
   </div>
-  <div class="container-fluid">
+  <div class="container-fluid-lg">
       <ul class="nav navbar-nav navbar-left">
         <li class="dropdown">
           <a href="#/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort By <span class="caret"></span></a>

@@ -23153,13 +23153,13 @@ var VideoDisplayClass = React.createClass({
 		var movieVideo = this.props.movieDisplayType.map(function (result) {
 			return React.createElement(
 				'div',
-				{ key: 'movieId_' + result.movie_id, className: 'trailer-container' },
+				{ id: 'trailer-container', key: 'movieId_' + result.movie_id, className: 'trailer-container' },
 				React.createElement(
 					'button',
-					{ className: 'btn close-trailer-btn', onClick: this.props.onClick },
+					{ className: 'btn close-trailer-btn btn-sm', onClick: this.props.onClick },
 					'close'
 				),
-				React.createElement('iframe', { width: '100%', height: 'auto', src: "https://www.youtube-nocookie.com/embed/" + result.movie_video_id + "?rel=0", frameBorder: '0', allowFullScreen: true })
+				React.createElement('iframe', { width: '100%', height: '250px', src: "https://www.youtube-nocookie.com/embed/" + result.movie_video_id + "?rel=0", frameBorder: '0', allowFullScreen: true })
 			);
 		}.bind(this));
 		return React.createElement(
@@ -23191,7 +23191,8 @@ var IndMovieApp = React.createClass({
 	getInitialState: function () {
 		return {
 			indMovie: [],
-			movieDisplayContainer: ImageDisplay
+			movieDisplayContainer: ImageDisplay,
+			showVideo: false
 		};
 	},
 
@@ -23204,14 +23205,16 @@ var IndMovieApp = React.createClass({
 	handleDisplayVideoClick: function (e) {
 		e.preventDefault();
 		this.setState({
-			movieDisplayContainer: VideoDisplay
+			movieDisplayContainer: VideoDisplay,
+			showVideo: true
 		});
 	},
 
 	handleDisplayImageClick: function (e) {
 		e.preventDefault();
 		this.setState({
-			movieDisplayContainer: ImageDisplay
+			movieDisplayContainer: ImageDisplay,
+			showVideo: false
 		});
 	},
 
@@ -23228,6 +23231,12 @@ var IndMovieApp = React.createClass({
 
 	componentDidMount: function () {
 		this.getIndMovie('/slim/scripts/ApiRoutes/CurrentMovie.php/movie/' + currentMovie);
+	},
+
+	componentDidUpdate: function () {
+		if (this.state.showVideo) {
+			jQuery("#trailer-container").get(0).scrollIntoView();
+		}
 	},
 
 	render: function () {

@@ -10,7 +10,8 @@ var IndMovieApp = React.createClass({
 	getInitialState: function(){
 		return {
 			indMovie: [],
-			movieDisplayContainer: ImageDisplay
+			movieDisplayContainer: ImageDisplay,
+			showVideo: false
 		}
 	},
 
@@ -23,16 +24,17 @@ var IndMovieApp = React.createClass({
 	handleDisplayVideoClick: function(e) {	
 		e.preventDefault();
 		this.setState({
-			movieDisplayContainer: VideoDisplay
+			movieDisplayContainer: VideoDisplay,
+			showVideo: true
 		});
 	},
 
 	handleDisplayImageClick: function(e) {
 		e.preventDefault();
 		this.setState({
-			movieDisplayContainer: ImageDisplay
+			movieDisplayContainer: ImageDisplay,
+			showVideo: false
 		});
-		
 	},
 
 	getIndMovie: function(url) {
@@ -48,6 +50,12 @@ var IndMovieApp = React.createClass({
 
 	componentDidMount: function() {
 		this.getIndMovie('/slim/scripts/ApiRoutes/CurrentMovie.php/movie/'+currentMovie);
+	},
+
+	componentDidUpdate: function() {
+		if(this.state.showVideo) {
+			jQuery("#trailer-container").get(0).scrollIntoView();
+		}
 	},
 
 	render: function() {

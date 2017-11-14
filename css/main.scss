@@ -62,6 +62,14 @@ html, body {
 	
 }
 
+@media only screen and (min-width: 750px) {
+	.movie-container {
+		a, h2 {
+			margin-left: 11px;
+		}
+	}
+}
+
 .trailer-container {
 	width: 100%;
 }
@@ -130,7 +138,7 @@ html, body {
 
 	@media only screen and (max-width:750px) {
 		a {
-			font-size: 0.9rem;
+			font-size: 1rem;
 			padding: 20px 10px 20px 10px;
     		margin-top: 20px;
 		}
@@ -142,10 +150,6 @@ html, body {
     	color: #a4cef3;
 	}
 	
-}
-
-.trailer-container {
-	padding: 0 18px;
 }
 
 @import "movie-details";

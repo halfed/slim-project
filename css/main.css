@@ -42,6 +42,9 @@ a:hover {
 @media (min-width: 768px) {
   .navbar-form .form-control {
     width: 100%; } }
+@media (max-width: 767px) {
+  .navbar-form .form-group {
+    margin-bottom: 0px; } }
 @media only screen and (max-width: 768px) {
   .navbar-form {
     display: flex;
@@ -61,15 +64,26 @@ a:hover {
   margin-bottom: 0;
   background: #f8f8f8; }
 
+@media only screen and (min-width: 750px) {
+  .breadcrumb {
+    padding: 8px 29px; } }
 .breadcrumb > li {
   font-size: 1.5rem;
   color: #303030; }
   .breadcrumb > li a {
     color: #303030; }
 
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0; }
+
 .container-fluid-small {
   padding-left: 5px;
   padding-right: 5px; }
+
+.container-fluid-lg {
+  padding-left: 15px;
+  padding-right: 15px; }
 
 .no-gutters {
   margin-right: 0;
@@ -129,7 +143,6 @@ html, body {
   margin-bottom: 10px;
   border-color: #FFF;
   float: right;
-  right: 26px;
   position: relative;
   margin-bottom: 10px; }
 
@@ -184,6 +197,9 @@ html, body {
     color: #000;
     background-color: #fff; }
 
+@media only screen and (min-width: 750px) {
+  .movie-container a, .movie-container h2 {
+    margin-left: 11px; } }
 .trailer-container {
   width: 100%; }
 
@@ -236,16 +252,13 @@ html, body {
     flex-grow: 1; }
   @media only screen and (max-width: 750px) {
     .movie-sub-nav a {
-      font-size: 0.9rem;
+      font-size: 1rem;
       padding: 20px 10px 20px 10px;
       margin-top: 20px; } }
   .movie-sub-nav a:hover {
     border-top: 2px solid #fff;
     border-bottom: 2px solid #fff;
     color: #a4cef3; }
-
-.trailer-container {
-  padding: 0 18px; }
 
 .ind-movie-description .movie-details {
   margin-right: 50px; }

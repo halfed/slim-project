@@ -64,6 +64,13 @@ a:hover {
   }
 }
 
+@media (max-width: 767px) {
+  .navbar-form .form-group {
+    margin-bottom: 0px;
+  }
+}
+  
+
 @media only screen and (max-width: 768px) {
   .navbar-form {
     display: flex;
@@ -94,6 +101,12 @@ a:hover {
 	background: #f8f8f8;
 }
 
+@media only screen and (min-width: 750px) {
+  .breadcrumb {
+    padding: 8px 29px;
+  }
+}
+
 .breadcrumb>li {
     font-size: 1.5rem;
     color: #303030;
@@ -102,8 +115,16 @@ a:hover {
     }
 }
 
+.container-fluid {
+  @include container-fluid(0, 0);
+}
+
 .container-fluid-small {
   @include container-fluid(5px, 5px);
+}
+
+.container-fluid-lg {
+  @include container-fluid(15px, 15px);
 }
 
 .no-gutters {
