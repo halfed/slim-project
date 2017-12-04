@@ -198,7 +198,7 @@ html, body {
     background-color: #fff; }
 
 @media only screen and (min-width: 750px) {
-  .movie-container a, .movie-container h2 {
+  .movie-container a.back, .movie-container h2 {
     margin-left: 11px; } }
 .trailer-container {
   width: 100%; }
