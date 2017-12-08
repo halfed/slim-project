@@ -48,6 +48,4 @@ class AllMovies extends Mapper
 	}
 }
 
-/*SELECT movie_name, url_param FROM `movies` WHERE movie_rating = "PG-13" ORDER BY movie_name ASC*/
-
 ?>

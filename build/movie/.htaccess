@@ -1,3 +1,4 @@
+#Due to PHP Slim routing, these are needed to enable the correct URI route without having to have the "index.php" in the url
 Options -Indexes
 
 RewriteEngine on
