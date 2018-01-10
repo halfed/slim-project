@@ -1,11 +1,19 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
+//var React = require('react');
+import React from "react";
+//var ReactDOM = require('react-dom');
+import ReactDOM from "react-dom";
+//import {Route, HashRouter, IndexRoute, BrowserRouter as Router} from "react-router-dom";
+import {Router, Route, IndexRoute, hashHistory} from "react-router";
+import {Newest} from "./pages/Newest";
+import {Genre} from "./pages/Genre";
+
 var App = require('./components/App');
 
 var MovieApp = React.createClass({
   getInitialState: function() {
     return {
-      movies: []
+      movies: [],
+      url: '/slim/scripts/ApiRoutes/AllMovies.php/'+selectionType
     }
   },
 
@@ -25,11 +33,26 @@ var MovieApp = React.createClass({
     });
   },
   componentDidMount: function() {
-    this.getmovies('/slim/scripts/ApiRoutes/AllMovies.php/allMovies');
+    this.getmovies(this.state.url);
   },
 	render: function() {
-		return <App movies={this.state.movies}/>
+    console.log(this.props);
+		return (<div>
+            {this.props.children}
+            <App movies={this.state.movies}/>
+            </div>
+            );
 	}
 });
 
-ReactDOM.render(<MovieApp />, document.getElementById('app'));
+//ReactDOM.render(<MovieApp />, document.getElementById('app'));
+//<IndexRoute component={FeaturedDropDown}/> In this instance we don't need an index route at this time, I think
+ReactDOM.render(<Genre />, document.getElementById('tree'));
+ReactDOM.render(
+  <Router history={hashHistory}>
+    <Route path="/" component={MovieApp}>
+      
+      <Route path="/Newest" name="newest" component={Newest}/>
+    </Route>
+  </Router>, 
+document.getElementById('app'));
