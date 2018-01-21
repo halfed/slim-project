@@ -6,10 +6,9 @@
 
   <title>The Movie Vault: individual movie</title>
 
-  <?php
-    include '../../partials/header_links.php';
-  ?>
-
+  <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../../css/main.min.css">
+  <script> var currentMovie = <?= json_encode($movie); ?></script>
 </head>
 <body>
     <?php

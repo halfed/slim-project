@@ -35,14 +35,19 @@ $app->add(function (Request $request, Response $response, callable $next) {
     return $next($request, $response);
 });
 
-$app->get('/', function (Request $request, Response $response) {
-    $response = $this->view->render($response, "main.php", []);
-    return $response;
-});
+$app->get('/[{movieSelection}]', function ($request, $response, $args) {
 
-$app->get('/{movieName}', function (Request $request, Response $response) {
-    $currentMovie = $request->getAttribute('movieName');
-    $response = $this->view->render($response, "movie.php", ["movie" => $currentMovie]);
+    $selection = $request->getAttribute('movieSelection');
+
+    if($selection === null) {
+        $selection = 'allMovies';
+        $showRatingMenu = 'false';
+    }
+    else {
+        $showRatingMenu = 'true';
+    }
+
+    $response = $this->view->render($response, "main.php", ["selectionType" => $selection, "showMenu" => $showRatingMenu]);
     return $response;
 });
 
