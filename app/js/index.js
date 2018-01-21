@@ -4,8 +4,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 //import {Route, HashRouter, IndexRoute, BrowserRouter as Router} from "react-router-dom";
 import {Router, Route, IndexRoute, hashHistory} from "react-router";
-import {Newest} from "./pages/Newest";
-import {Genre} from "./pages/Genre";
+import {OptionalChoices} from "./pages/OptionalChoices";
+import {MainDropDown} from "./pages/MainDropDown";
 
 var App = require('./components/App');
 
@@ -13,7 +13,8 @@ var MovieApp = React.createClass({
   getInitialState: function() {
     return {
       movies: [],
-      url: '/slim/scripts/ApiRoutes/AllMovies.php/'+selectionType
+      url: '/slim/scripts/ApiRoutes/AllMovies.php/'+selectionType,
+      mainDropDown: true
     }
   },
 
@@ -32,13 +33,23 @@ var MovieApp = React.createClass({
       }.bind(this)
     });
   },
-  componentDidMount: function() {
-    this.getmovies(this.state.url);
+  onOptionalChange: function(value) {
+    this.getmovies(this.state.url+"/"+value);
   },
-	render: function() {
-    console.log(this.props);
+  componentWillMount: function() {
+    console.log("componentWill mount");
+  },
+  componentDidMount: function() {
+    if(this.props.location.query.Rating) {
+      this.getmovies(this.state.url+"/"+this.props.location.query.Rating);
+    }
+    else {
+      this.getmovies(this.state.url);
+    }
+  },
+	render: function() {       
 		return (<div>
-            {this.props.children}
+            {React.cloneElement(this.props.children, {onOptionalMenuChange: this.onOptionalChange})}
             <App movies={this.state.movies}/>
             </div>
             );
@@ -46,13 +57,11 @@ var MovieApp = React.createClass({
 });
 
 //ReactDOM.render(<MovieApp />, document.getElementById('app'));
-//<IndexRoute component={FeaturedDropDown}/> In this instance we don't need an index route at this time, I think
-ReactDOM.render(<Genre />, document.getElementById('tree'));
+ReactDOM.render(<MainDropDown />, document.getElementById('main-drop-down'));
 ReactDOM.render(
   <Router history={hashHistory}>
     <Route path="/" component={MovieApp}>
-      
-      <Route path="/Newest" name="newest" component={Newest}/>
+      <IndexRoute component={OptionalChoices} />
     </Route>
   </Router>, 
 document.getElementById('app'));

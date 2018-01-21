@@ -12,6 +12,7 @@ var MyComponentClass = React.createClass({
 						</a>
 					</div>
 		});
+
 		return (<div>{resultItems}</div>);
   	}
 });
