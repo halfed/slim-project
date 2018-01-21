@@ -60,6 +60,15 @@ a:hover {
 .navbar-default .navbar-nav > li > a {
   font-size: 1.3rem; }
 
+.dropdown-menu > div > li > a {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: 400;
+  line-height: 1.42857143;
+  color: #333;
+  white-space: nowrap; }
+
 .breadcrumb {
   margin-bottom: 0;
   background: #f8f8f8; }
@@ -188,6 +197,17 @@ html, body {
   background-image: url(../images/sprites/searchx2.png);
   width: 50px;
   height: 50px; }
+
+.rating-container {
+  display: flex;
+  margin-bottom: 20px;
+  margin-left: -15px;
+  padding-left: 0; }
+  .rating-container h2 {
+    margin-top: 1px;
+    margin-bottom: 0; }
+  .rating-container .rating-menu-container button span.caret {
+    margin-left: 5px; }
 
 .movie-container {
   margin-bottom: 20px; }
