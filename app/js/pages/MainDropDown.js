@@ -9,7 +9,7 @@ export class MainDropDown extends React.Component {
 	            <a href="#/" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SORT BY <span className="caret"></span></a>
 	            <ul className="dropdown-menu">
 	              <li><a href="Newest">New Release</a></li>
-	              <li><a href="#">A-Z</a></li>
+	              <li><a href="A-Z">A-Z</a></li>
 	            </ul>
 	          </li>
 	          <li className="dropdown">

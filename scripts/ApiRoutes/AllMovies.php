@@ -25,6 +25,19 @@ $app->get('/allMovies', function (Request $request, Response $response) {
 	$ticker = $mapper->getAllMovies();
     return $response;
 });
+
+$app->get('/[{movieType}[/{rating}[/{thirdSelection}]]]', function (Request $request, Response $response, $args) {
+
+	//$params = explode('/', $args['params']);
+
+	$selectionType = $request->getAttribute('movieType');
+	$rating = $request->getAttribute('rating');
+	$thirdSelection = $request->getAttribute('thirdSelection');
+
+    $mapper = new GetMovieSelections($this->db);
+	$ticker = $mapper->getAllMovies($selectionType, $rating, $thirdSelection);
+    return $response;
+});
 $app->run();
 
 
