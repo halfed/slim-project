@@ -1,0 +1,7 @@
+#Due to PHP Slim routing, these are needed to enable the correct URI route without having to have the "index.php" in the url
+Options -Indexes
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . index.php [L]

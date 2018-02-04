@@ -2,5 +2,11 @@ app.controller('IndMovieController', ['$scope', 'allMovies', '$routeParams', '$l
 	allMovies.success(function(data) {
 		$scope.movie = data[$routeParams.id];
 		//$location.path('/slim/');
+
 	});
+	$scope.toDisplay = 'image';
+
+	$scope.backToImage = function() {
+		$scope.toDisplay = 'image';
+	}
 }]);

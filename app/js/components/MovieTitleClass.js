@@ -2,7 +2,10 @@ var React = require('react');
 
 var MovieTitleClass = React.createClass({
 	render: function() {
-		return <h3>{this.props.movie_name}</h3>
+		var titleName = this.props.movieTitleName.map(function(result) {
+			return result.movie_name
+		});
+		return <h2>{titleName}</h2>;
 	}
 });
 

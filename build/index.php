@@ -1,37 +1,55 @@
-<!DOCTYPE html>
-<html>
-<header>
-	<meta charset="UTF-8">
-	<title>The Movie Vault</title>
+<?php 
+use \Psr\Http\Message\ServerRequestInterface as Request;
+use \Psr\Http\Message\ResponseInterface as Response;
 
-	<?php
-    include '../partials/header_links.php';
-  ?>
-</header>
-<body>
+require '../vendor/autoload.php';
+require '../scripts/connection.php';
+require '../classes/Movies.php';
 
-  <?php
-    include '../partials/header.php';
-  ?>
+$app = new \Slim\App(["settings" => $config]);
+/*$apps = new \Slim\App([
+    'settings' => [
+        // Only set this if you need access to route within middleware
+        'determineRouteBeforeAppMiddleware' => true
+    ]
+]);*/
+$container = $app->getContainer();
+$container['view'] = new \Slim\Views\PhpRenderer("templates");
 
-  <?php
-    include '../partials/breadcrumb.php';
-  ?>
-  
-  <?php
-    include '../partials/nav.php';
-  ?>  
+$app->add(function (Request $request, Response $response, callable $next) {
+    $uri = $request->getUri();
+    $path = $uri->getPath();
+    if ($path != '/' && substr($path, -1) == '/') {
+        // permanently redirect paths with a trailing slash
+        // to their non-trailing counterpart
+        $uri = $uri->withPath(substr($path, 0, -1));
+        
+        if($request->getMethod() == 'GET') {
+            return $response->withRedirect((string)$uri, 301);
+        }
+        else {
+            return $next($request->withUri($uri), $response);
+        }
+    }
 
-  <div id="app" class="main row movie-container">
-	
-	</div>
+    return $next($request, $response);
+});
 
-  <?php
-    include '../partials/footer.php';
-  ?>
+$app->get('/[{movieSelection}]', function ($request, $response, $args) {
 
-  <?php
-    include '../partials/body_scripts.php';
-  ?>
-<script type="text/javascript" src="app-bundle.js"></script></body>
-</html>
+    $selection = $request->getAttribute('movieSelection');
+
+    if($selection === null) {
+        $selection = 'allMovies';
+        $showRatingMenu = 'false';
+    }
+    else {
+        $showRatingMenu = 'true';
+    }
+
+    $response = $this->view->render($response, "main.php", ["selectionType" => $selection, "showMenu" => $showRatingMenu]);
+    return $response;
+});
+
+$app->run();
+?>

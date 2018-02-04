@@ -1,7 +1,12 @@
 <a class="button back btn-default gen-button-default" href="/slim/#/">Back</a>
 <h2>{{movie.movie_name}}</h2>
-<div class="col-md-5 col-sm-4">
-	<img ng-src="/slim/images/main/{{movie.movie_img_lg}}">
+<div class="col-md-5 col-sm-4 collapse-overide">
+	<div ng-switch on="toDisplay">
+		<div ng-switch-when="image"><img ng-src="/slim/images/main/{{movie.movie_img_lg}}"></div>
+		<div ng-switch-when="trailer"><button class="btn btn-primary" ng-click="backToImage()">close</button>
+		<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/IEVE3KSKQ0o?rel=0" frameborder="0" allowfullscreen></iframe>
+	</div>
+	</div>
 </div>
 
 
@@ -22,7 +27,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12 movie-sub-nav">
-			<a href="">Rent</a> <a href="">Ways To Watch</a> <a href="">Trailer</a> <a href="">Extras</a> <a href="">More</a>
+			<a href="">Rent</a> <a href="">Ways To Watch</a> <a href="" ng-click="toDisplay='trailer'">Trailer</a> <a href="">Extras</a> <a href="">More</a>
 		</div>
 	</div>
 </div>

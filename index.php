@@ -6,8 +6,8 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
 
-    <script src="js/vendor/angular-1.3.5.min.js"></script>
-    <script src="js/vendor/angular-route.1.2.28.js"></script>
+    <script src="/js/vendor/angular-1.3.5.min.js"></script>
+    <script src="/js/vendor/angular-route.1.2.28.js"></script>
     <base href="/">
 </head>
 <body ng-app="MovieApp">
@@ -88,11 +88,11 @@
     <script type="text/javascript" src="/slim/js/app.js"></script>
 
     <!-- Controllers -->
-    <script type="text/javascript" src="/slim/js/Controllers/MovieController.js"></script>
-    <script type="text/javascript" src="/slim/js/Controllers/IndMovieController.js"></script>
+    <script type="text/javascript" src="/slim/js/controllers/MovieController.js"></script>
+    <script type="text/javascript" src="/slim/js/controllers/IndMovieController.js"></script>
 
     <!--Services -->
-    <script src="/slim/js/services/allMovies.js"></script>
+    <script src="/slim/js/Services/allMovies.js"></script>
     <script type="text/javascript" src="slim/js/core.js"></script>
 </body>
 </html>

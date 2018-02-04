@@ -1,5 +1,5 @@
 app.factory('allMovies', ['$http', function($http) {
-	return $http.get('http://localhost/slim/scripts/ApiRoutes/AllMovies.php/allMovies')
+	return $http.get('/slim/scripts/ApiRoutes/AllMovies.php/allMovies')
 	.success(function(data){
 		return data;
 	})

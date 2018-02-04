@@ -1,36 +1,48 @@
-<!DOCTYPE html>
-<html>
-<header>
-	<meta charset="UTF-8">
-	<title>The Movie Vault: individual movie</title>
+<?php 
+use \Psr\Http\Message\ServerRequestInterface as Request;
+use \Psr\Http\Message\ResponseInterface as Response;
 
-	<?php
-    include '../../partials/header_links.php';
-  ?>
-</header>
-<body>
-	<?php
-    	include '../../partials/header.php';
-  	?>
+require '../../vendor/autoload.php';
+require '../../scripts/connection.php';
+require '../../classes/Movies.php';
 
-  	<?php
-    	include '../../partials/breadcrumb.php';
-  	?>
-  
-  	<?php
-    	include '../../partials/nav.php';
-  	?>  
+$app = new \Slim\App(["settings" => $config]);
+/*$apps = new \Slim\App([
+    'settings' => [
+        // Only set this if you need access to route within middleware
+        'determineRouteBeforeAppMiddleware' => true
+    ]
+]);*/
+$container = $app->getContainer();
+$container['view'] = new \Slim\Views\PhpRenderer("../templates");
 
-  	<div id="movieApp" class="main row movie-container">
-	
-	</div>
+$app->add(function (Request $request, Response $response, callable $next) {
+    $uri = $request->getUri();
+    $path = $uri->getPath();
+    if ($path != '/' && substr($path, -1) == '/') {
+        // permanently redirect paths with a trailing slash
+        // to their non-trailing counterpart
+        $uri = $uri->withPath(substr($path, 0, -1));
+        
+        if($request->getMethod() == 'GET') {
+            return $response->withRedirect((string)$uri, 301);
+        }
+        else {
+            return $next($request->withUri($uri), $response);
+        }
+    }
 
-  	<?php
-    	include '../../partials/footer.php';
-  	?>
+    return $next($request, $response);
+});
 
-  	<?php
-    	include '../../partials/body_scripts.php';
-  	?>
-<script type="text/javascript" src="../xampp/htdocs/slim/build/movie-bundle.js"></script></body>
-</html>
+$app->get('/{movieName}', function (Request $request, Response $response) {
+    $currentMovie = $request->getAttribute('movieName');
+    $response = $this->view->render($response, "movie.php", ["movie" => $currentMovie]);
+    return $response;
+});
+
+
+
+
+$app->run();
+?>
