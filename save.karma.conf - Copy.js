@@ -17,8 +17,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      //'tests/ .test.js',
-      //'tests/*.test.js'
+      
       'tests.webpack.js'
     ],
 
@@ -43,7 +42,7 @@ module.exports = function(config) {
     webpack: {
         module: {
             loaders: [
-                {test: /\.js?$/, exclude: /node_modules/, loader: 'babel-loader'}
+                {test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader'}
             ]
         },
         watch: true
@@ -82,13 +81,6 @@ module.exports = function(config) {
 
     // Concurrency level
     // how many browser should be started simultaneous
-    concurrency: Infinity,
-
-    plugins: [
-      'karma-webpack',
-      'karma-jasmine',
-      'karma-sourcemap-loader',
-      'karma-chrome-launcher',
-    ]
+    concurrency: Infinity
   })
 }
