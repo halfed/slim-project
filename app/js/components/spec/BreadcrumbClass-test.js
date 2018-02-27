@@ -24,18 +24,13 @@ describe('Breadcrumb component', () => {
 		expect(wrapper.is("div")).toBe(true);
 	});
 
-	it("should contain an array of a specific movie selected", () => {
-		//console.log(props.result.movie_name);
-		//console.log("wrapper text: " + wrapper.text());
+	it("should contain an array of information of a specific movie selected", () => {
 		expect(wrapper.text()).toBe(props.result.movie_name);
 	});
 
-	it('allows us to set props', () => {
-		//const wrapper = mount(<Foo bar="baz" />);
+	it('should display props', () => {
     	mWrapper = mount(<Breadcrumb {...props}/>);
     	const texts = mWrapper.find('.active').map(node => node.text());
-    	console.log("Active: " + mWrapper.find('li').at(2).prop('className'));
-    	console.log("Active: " + texts);
     	expect(texts).toEqual(['Hitch']);
   });
 });

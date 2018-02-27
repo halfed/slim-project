@@ -24,7 +24,7 @@ var MovieContentClass = React.createClass({
 						</div>
 						<div className="row no-gutters">
 							<div className="col-md-12 movie-sub-nav">
-								<a href=""><b>Rent</b></a> <a href=""><b>Ways To Watch</b></a> <a href="#" onClick={this.props.onClick}><b>Trailer</b></a> <a href=""><b>Extras</b></a> <a href=""><b>More</b></a>
+								<a href=""><b>Rent</b></a> <a href=""><b>Ways To Watch</b></a> <a href="#" className="trailer" onClick={this.props.onClick}><b>Trailer</b></a> <a href=""><b>Extras</b></a> <a href=""><b>More</b></a>
 							</div>
 						</div>
 					</div>
